@@ -1,0 +1,3090 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0305.1200                               -->
+<workbook original-version='10.5' source-build='10.5.2 (10500.18.0305.1200)' source-platform='win' version='10.5' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <repository-location id='GreenhouseGasEmissions-Boston' path='/workbooks' revision='1.7' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='community-greenhouse-gas+ (Multiple Connections)' inline='true' name='federated.04i75mg0yvuw1m1598st20vc5nsp' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='community-greenhouse-gas' name='excel-direct.1c4i4sk173p1v61bvrhc117e8g5g'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/kruts/Desktop/MakeoverMONDAY/Greenhouse/community-greenhouse-gas.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='local-government-operations-greenhouse-gas' name='excel-direct.0fwgp1j1hblnub1fdzpj01w2zucv'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/kruts/Desktop/MakeoverMONDAY/Greenhouse/local-government-operations-greenhouse-gas.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='local-government-operations-fuels' name='excel-direct.069d24r06fxqqv15vqouk0vx2zqa'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/kruts/Desktop/MakeoverMONDAY/Greenhouse/local-government-operations-fuels.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[community-greenhouse-gas].[Year]' />
+              <expression op='[local-government-operations-fue].[Year]' />
+            </expression>
+          </clause>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[community-greenhouse-gas].[Year]' />
+                <expression op='[local-government-operations-gre].[Year]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.1c4i4sk173p1v61bvrhc117e8g5g' name='community-greenhouse-gas' table='[&apos;community-greenhouse-gas$&apos;]' type='table'>
+              <columns gridOrigin='A1:E177:no:A1:E177:0' header='yes' outcome='6'>
+                <column datatype='string' name='Protocol' ordinal='0' />
+                <column datatype='string' name='Sector' ordinal='1' />
+                <column datatype='string' name='Source' ordinal='2' />
+                <column datatype='integer' name='Year' ordinal='3' />
+                <column datatype='integer' name='GHG Emissions (mt CO2e)' ordinal='4' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.0fwgp1j1hblnub1fdzpj01w2zucv' name='local-government-operations-gre' table='[&apos;local-government-operations-gre$&apos;]' type='table'>
+              <columns gridOrigin='A1:G793:no:A1:G793:0' header='yes' outcome='2'>
+                <column datatype='string' name='Protocol' ordinal='0' />
+                <column datatype='string' name='Department Longname' ordinal='1' />
+                <column datatype='string' name='Department' ordinal='2' />
+                <column datatype='string' name='Sector' ordinal='3' />
+                <column datatype='string' name='Fuel Type' ordinal='4' />
+                <column datatype='integer' name='Year' ordinal='5' />
+                <column datatype='string' name='GHG Emissions (t CO2e)' ordinal='6' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.069d24r06fxqqv15vqouk0vx2zqa' name='local-government-operations-fue' table='[&apos;local-government-operations-fue$&apos;]' type='table'>
+            <columns gridOrigin='A1:AM796:no:A1:AM796:0' header='yes' outcome='2'>
+              <column datatype='string' name='Department Longname' ordinal='0' />
+              <column datatype='string' name='Department' ordinal='1' />
+              <column datatype='string' name='Sector' ordinal='2' />
+              <column datatype='string' name='Fuel Type' ordinal='3' />
+              <column datatype='integer' name='Year' ordinal='4' />
+              <column datatype='string' name='Quantity' ordinal='5' />
+              <column datatype='string' name='Units' ordinal='6' />
+              <column datatype='real' name='F8' ordinal='7' />
+              <column datatype='real' name='F9' ordinal='8' />
+              <column datatype='real' name='F10' ordinal='9' />
+              <column datatype='real' name='F11' ordinal='10' />
+              <column datatype='real' name='F12' ordinal='11' />
+              <column datatype='real' name='F13' ordinal='12' />
+              <column datatype='real' name='F14' ordinal='13' />
+              <column datatype='real' name='F15' ordinal='14' />
+              <column datatype='real' name='F16' ordinal='15' />
+              <column datatype='real' name='F17' ordinal='16' />
+              <column datatype='real' name='F18' ordinal='17' />
+              <column datatype='real' name='F19' ordinal='18' />
+              <column datatype='real' name='F20' ordinal='19' />
+              <column datatype='real' name='F21' ordinal='20' />
+              <column datatype='real' name='F22' ordinal='21' />
+              <column datatype='real' name='F23' ordinal='22' />
+              <column datatype='real' name='F24' ordinal='23' />
+              <column datatype='string' name='F25' ordinal='24' />
+              <column datatype='string' name='F26' ordinal='25' />
+              <column datatype='string' name='F27' ordinal='26' />
+              <column datatype='string' name='F28' ordinal='27' />
+              <column datatype='string' name='F29' ordinal='28' />
+              <column datatype='string' name='F30' ordinal='29' />
+              <column datatype='string' name='F31' ordinal='30' />
+              <column datatype='string' name='F32' ordinal='31' />
+              <column datatype='string' name='F33' ordinal='32' />
+              <column datatype='string' name='F34' ordinal='33' />
+              <column datatype='string' name='F35' ordinal='34' />
+              <column datatype='string' name='F36' ordinal='35' />
+              <column datatype='string' name='F37' ordinal='36' />
+              <column datatype='string' name='F38' ordinal='37' />
+              <column datatype='string' name='F39' ordinal='38' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Department (local-government-operations-gre)]' value='[local-government-operations-gre].[Department]' />
+          <map key='[Department Longname (local-government-operations-gre)]' value='[local-government-operations-gre].[Department Longname]' />
+          <map key='[Department Longname]' value='[local-government-operations-fue].[Department Longname]' />
+          <map key='[Department]' value='[local-government-operations-fue].[Department]' />
+          <map key='[F10]' value='[local-government-operations-fue].[F10]' />
+          <map key='[F11]' value='[local-government-operations-fue].[F11]' />
+          <map key='[F12]' value='[local-government-operations-fue].[F12]' />
+          <map key='[F13]' value='[local-government-operations-fue].[F13]' />
+          <map key='[F14]' value='[local-government-operations-fue].[F14]' />
+          <map key='[F15]' value='[local-government-operations-fue].[F15]' />
+          <map key='[F16]' value='[local-government-operations-fue].[F16]' />
+          <map key='[F17]' value='[local-government-operations-fue].[F17]' />
+          <map key='[F18]' value='[local-government-operations-fue].[F18]' />
+          <map key='[F19]' value='[local-government-operations-fue].[F19]' />
+          <map key='[F20]' value='[local-government-operations-fue].[F20]' />
+          <map key='[F21]' value='[local-government-operations-fue].[F21]' />
+          <map key='[F22]' value='[local-government-operations-fue].[F22]' />
+          <map key='[F23]' value='[local-government-operations-fue].[F23]' />
+          <map key='[F24]' value='[local-government-operations-fue].[F24]' />
+          <map key='[F25]' value='[local-government-operations-fue].[F25]' />
+          <map key='[F26]' value='[local-government-operations-fue].[F26]' />
+          <map key='[F27]' value='[local-government-operations-fue].[F27]' />
+          <map key='[F28]' value='[local-government-operations-fue].[F28]' />
+          <map key='[F29]' value='[local-government-operations-fue].[F29]' />
+          <map key='[F30]' value='[local-government-operations-fue].[F30]' />
+          <map key='[F31]' value='[local-government-operations-fue].[F31]' />
+          <map key='[F32]' value='[local-government-operations-fue].[F32]' />
+          <map key='[F33]' value='[local-government-operations-fue].[F33]' />
+          <map key='[F34]' value='[local-government-operations-fue].[F34]' />
+          <map key='[F35]' value='[local-government-operations-fue].[F35]' />
+          <map key='[F36]' value='[local-government-operations-fue].[F36]' />
+          <map key='[F37]' value='[local-government-operations-fue].[F37]' />
+          <map key='[F38]' value='[local-government-operations-fue].[F38]' />
+          <map key='[F39]' value='[local-government-operations-fue].[F39]' />
+          <map key='[F8]' value='[local-government-operations-fue].[F8]' />
+          <map key='[F9]' value='[local-government-operations-fue].[F9]' />
+          <map key='[Fuel Type (local-government-operations-gre)]' value='[local-government-operations-gre].[Fuel Type]' />
+          <map key='[Fuel Type]' value='[local-government-operations-fue].[Fuel Type]' />
+          <map key='[GHG Emissions (mt CO2e)]' value='[community-greenhouse-gas].[GHG Emissions (mt CO2e)]' />
+          <map key='[GHG Emissions (t CO2e)]' value='[local-government-operations-gre].[GHG Emissions (t CO2e)]' />
+          <map key='[Protocol (local-government-operations-gre)]' value='[local-government-operations-gre].[Protocol]' />
+          <map key='[Protocol]' value='[community-greenhouse-gas].[Protocol]' />
+          <map key='[Quantity]' value='[local-government-operations-fue].[Quantity]' />
+          <map key='[Sector (local-government-operations-fue)]' value='[local-government-operations-fue].[Sector]' />
+          <map key='[Sector (local-government-operations-gre)]' value='[local-government-operations-gre].[Sector]' />
+          <map key='[Sector]' value='[community-greenhouse-gas].[Sector]' />
+          <map key='[Source]' value='[community-greenhouse-gas].[Source]' />
+          <map key='[Units]' value='[local-government-operations-fue].[Units]' />
+          <map key='[Year (local-government-operations-fue)]' value='[local-government-operations-fue].[Year]' />
+          <map key='[Year (local-government-operations-gre)]' value='[local-government-operations-gre].[Year]' />
+          <map key='[Year]' value='[community-greenhouse-gas].[Year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Protocol</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Protocol]</local-name>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias>Protocol</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sector]</local-name>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias>Sector</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Source</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Source]</local-name>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias>Source</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GHG Emissions (mt CO2e)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GHG Emissions (mt CO2e)]</local-name>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias>GHG Emissions (mt CO2e)</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[community-greenhouse-gas]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E177:no:A1:E177:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Protocol</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Protocol (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Protocol</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Department Longname</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Department Longname (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Department Longname</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Department</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Department (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Department</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sector (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Sector</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fuel Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Fuel Type (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Fuel Type</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year (local-government-operations-gre)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GHG Emissions (t CO2e)</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[GHG Emissions (t CO2e)]</local-name>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias>GHG Emissions (t CO2e)</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[local-government-operations-gre]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:G793:no:A1:G793:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Department Longname</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Department Longname]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Department Longname</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Department</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Department]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Department</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sector (local-government-operations-fue)]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Sector</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fuel Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Fuel Type]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Fuel Type</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year (local-government-operations-fue)]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Quantity</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Quantity]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Quantity</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Units</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Units]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>Units</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F8</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F8]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F8</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F9</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F9]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F9</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F10</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F10]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F10</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F11</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F11]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F11</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F12</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F12]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F12</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F13</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F13]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F13</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F14</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F14]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F14</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F15</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F15]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F15</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F16</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F16]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F16</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F17</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F17]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F17</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F18</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F18]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F18</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F19</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F19]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F19</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F20</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F20]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F20</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F21</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F21]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F21</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F22</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F22]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F22</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F23</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F23]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F23</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F24</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F24]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F24</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F25</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F25]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F25</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F26</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F26]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F26</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F27</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F27]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F27</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F28</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F28]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F28</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F29</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F29]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F29</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F30</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F30]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F30</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F31</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F31]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F31</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F32</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F32]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F32</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F33</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F33]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F33</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F34</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F34]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F34</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F35</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F35]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F35</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F36</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F36]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F36</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F37</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F37]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F37</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F38</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F38]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F38</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F39</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F39]</local-name>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias>F39</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[local-government-operations-fue]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:AM796:no:A1:AM796:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]&quot;' value='GHG Emissions (t CO2e)' />
+          <alias key='&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:Quantity:qk]&quot;' value='Energy Consumption' />
+        </aliases>
+      </column>
+      <column caption='Sector1' datatype='string' name='[Calculation_989103074221293570]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[Sector (local-government-operations-fue)]' />
+      </column>
+      <column caption='Calculation1' datatype='string' name='[Calculation_989103074245263365]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;image&quot;' />
+      </column>
+      <column datatype='string' name='[Department Longname]' role='dimension' type='nominal' />
+      <column datatype='real' hidden='true' name='[F10]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F11]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F12]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F13]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F14]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F15]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F16]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F17]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F18]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F19]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F20]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F21]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F22]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F23]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F24]' role='measure' type='quantitative' />
+      <column datatype='string' hidden='true' name='[F25]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F26]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F27]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F28]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F29]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F30]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F31]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F32]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F33]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F34]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F35]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F36]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F37]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F38]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[F39]' role='dimension' type='nominal' />
+      <column datatype='real' hidden='true' name='[F8]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[F9]' role='measure' type='quantitative' />
+      <column caption='Fuel Type (Energy )' datatype='string' name='[Fuel Type (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[Fuel Type]' />
+      </column>
+      <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+      </column>
+      <column datatype='string' name='[Fuel Type]' role='dimension' type='nominal' />
+      <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[GHG Emissions (t CO2e)]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[Quantity]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Year (local-government-operations-fue)]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Year (local-government-operations-gre)]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <column-instance column='[GHG Emissions (t CO2e)]' derivation='Count' name='[cnt:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Quantity]' derivation='Count' name='[cnt:Quantity:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[GHG Emissions (t CO2e)]' derivation='CountD' name='[ctd:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Quantity]' derivation='CountD' name='[ctd:Quantity:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Department Longname]' derivation='None' name='[none:Department Longname:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Fuel Type]' derivation='None' name='[none:Fuel Type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[GHG Emissions (t CO2e)]' derivation='None' name='[none:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/kruts/Documents/My Tableau Repository/Datasources/community-greenhouse-gas+ (Multiple Connections).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='06/05/2018 05:10:13 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Department (local-government-operations-gre)]' value='[Extract].[Department]' />
+            <map key='[Department Longname (local-government-operations-gre)]' value='[Extract].[Department Longname]' />
+            <map key='[Department Longname]' value='[Extract].[Department Longname1]' />
+            <map key='[Department]' value='[Extract].[Department1]' />
+            <map key='[Fuel Type (local-government-operations-gre)]' value='[Extract].[Fuel Type]' />
+            <map key='[Fuel Type]' value='[Extract].[Fuel Type1]' />
+            <map key='[GHG Emissions (mt CO2e)]' value='[Extract].[GHG Emissions (mt CO2e)]' />
+            <map key='[GHG Emissions (t CO2e)]' value='[Extract].[GHG Emissions (t CO2e)]' />
+            <map key='[Protocol (local-government-operations-gre)]' value='[Extract].[Protocol]' />
+            <map key='[Protocol]' value='[Extract].[Protocol1]' />
+            <map key='[Quantity]' value='[Extract].[Quantity]' />
+            <map key='[Sector (local-government-operations-fue)]' value='[Extract].[Sector]' />
+            <map key='[Sector (local-government-operations-gre)]' value='[Extract].[Sector1]' />
+            <map key='[Sector]' value='[Extract].[Sector2]' />
+            <map key='[Source]' value='[Extract].[Source]' />
+            <map key='[Units]' value='[Extract].[Units]' />
+            <map key='[Year (local-government-operations-fue)]' value='[Extract].[Year]' />
+            <map key='[Year (local-government-operations-gre)]' value='[Extract].[Year1]' />
+            <map key='[Year]' value='[Extract].[Year2]' />
+          </cols>
+          <refresh>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='912387' timestamp-start='2018-06-05 17:10:13.789' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Protocol1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Protocol]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Protocol1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>community-greenhouse-gas</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sector2</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sector]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sector2</remote-alias>
+              <ordinal>1</ordinal>
+              <family>community-greenhouse-gas</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Source</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Source]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Source</remote-alias>
+              <ordinal>2</ordinal>
+              <family>community-greenhouse-gas</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year2</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year2</remote-alias>
+              <ordinal>3</ordinal>
+              <family>community-greenhouse-gas</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GHG Emissions (mt CO2e)</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[GHG Emissions (mt CO2e)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GHG Emissions (mt CO2e)</remote-alias>
+              <ordinal>4</ordinal>
+              <family>community-greenhouse-gas</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>152</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Protocol</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Protocol (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Protocol</remote-alias>
+              <ordinal>5</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Department Longname</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Department Longname (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Department Longname</remote-alias>
+              <ordinal>6</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Department</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Department (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Department</remote-alias>
+              <ordinal>7</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sector1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sector (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sector1</remote-alias>
+              <ordinal>8</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fuel Type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Fuel Type (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Fuel Type</remote-alias>
+              <ordinal>9</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year (local-government-operations-gre)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year1</remote-alias>
+              <ordinal>10</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GHG Emissions (t CO2e)</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[GHG Emissions (t CO2e)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GHG Emissions (t CO2e)</remote-alias>
+              <ordinal>11</ordinal>
+              <family>local-government-operations-gre</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>68</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Department Longname1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Department Longname]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Department Longname1</remote-alias>
+              <ordinal>12</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Department1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Department]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Department1</remote-alias>
+              <ordinal>13</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sector</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sector (local-government-operations-fue)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sector</remote-alias>
+              <ordinal>14</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fuel Type1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Fuel Type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Fuel Type1</remote-alias>
+              <ordinal>15</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year (local-government-operations-fue)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>16</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Quantity</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Quantity]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Quantity</remote-alias>
+              <ordinal>17</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>582</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Units</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Units]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Units</remote-alias>
+              <ordinal>18</ordinal>
+              <family>local-government-operations-fue</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.715659' measure-ordering='alphabetic' measure-percentage='0.284341' rowDisplayCount='1000' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Department Longname:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Neighborhood Development&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Emergency Medical Services&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Public Health Commission&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Parks and Recreation&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Fire&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Arts, Tourism and Special events&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Transportation Streetlights&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Inspectional Services&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Public Works&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Public Works Streetlights&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Water and Sewer Commission&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Police&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Library&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Boston Public Schools&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Transportation&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Property &amp; Construction Mgmt&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Center for Youth and Families&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[cnt:GHG Emissions (t CO2e):qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:GHG Emissions (t CO2e):qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[cnt:Quantity:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:Quantity:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Fuel Type:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Gasoline&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Fuel Oil&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Steam&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Electricity&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Natural Gas&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Diesel&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Forecast Indicator:nk]' palette='green_orange_cyan_yellow_10_0' type='palette'>
+            <map to='#4e9f50'>
+              <bucket>&quot;Actual&quot;</bucket>
+            </map>
+            <map to='#87d180'>
+              <bucket>&quot;Estimate&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Sector (local-government-operations-gre):nk]' palette='green_gold_10_0' type='palette'>
+            <map to='#146c36'>
+              <bucket>&quot;Vehicles&quot;</bucket>
+            </map>
+            <map to='#439350'>
+              <bucket>&quot;Unknown&quot;</bucket>
+            </map>
+            <map to='#8eb858'>
+              <bucket>&quot;Street Lights&quot;</bucket>
+            </map>
+            <map to='#f4d166'>
+              <bucket>&quot;Buildings&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <default-sorts>
+        <sort class='manual' column='[none:Forecast Indicator:nk]' direction='ASC'>
+          <dictionary>
+            <bucket>&quot;Actual&quot;</bucket>
+            <bucket>&quot;Estimate&quot;</bucket>
+          </dictionary>
+        </sort>
+      </default-sorts>
+      <field-sort-info field-sort-order-type='alphabetical-order' />
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+      <datasources>
+        <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+      </datasources>
+      <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+        <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+        </column>
+        <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+        <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+        <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]'>
+        <groupfilter function='level-members' level='[none:Fuel Type (local-government-operations-gre) (copy):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]'>
+        <groupfilter from='&quot;Buildings&quot;' function='range' level='[none:Sector (local-government-operations-gre):nk]' to='&quot;Vehicles&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='FuelType'>
+      <layout-options>
+        <title>
+          <formatted-text />
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+            <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+            </column>
+            <column datatype='string' name='[Fuel Type (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[GHG Emissions (t CO2e)]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column-instance column='[GHG Emissions (t CO2e)]' derivation='CountD' name='[ctd:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Fuel Type (local-government-operations-gre)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre):nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Fuel Type (local-government-operations-gre):nk]' />
+              <groupfilter function='member' level='[none:Fuel Type (local-government-operations-gre):nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre):nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]' value='124' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre):nk]' value='false' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#f2dada</color>
+                <color>#f3c3c3</color>
+                <color>#f5abab</color>
+                <color>#f69393</color>
+                <color>#f87c7c</color>
+                <color>#f96363</color>
+                <color>#fa4b4b</color>
+                <color>#fc3232</color>
+                <color>#fd1919</color>
+                <color>#ff0000</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' />
+              <text column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='has-stroke' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk] / [federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre):nk])</rows>
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name='GHG Emissions Sector-wise'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>GHG Emissions Sector-wise</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+            <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+            </column>
+            <column datatype='string' name='[Fuel Type (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[GHG Emissions (t CO2e)]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column-instance column='[GHG Emissions (t CO2e)]' derivation='CountD' name='[ctd:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' scope='rows' value=' GHG Emissions (t CO2e)' />
+            <format attr='subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' value='322' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' value='Sector (GHG Emissions)&#10;'>
+              <formatted-text>
+                <run bold='true' fontsize='10'>Sector (GHG Emissions)</run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' />
+              <text column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' />
+              <color column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name='GHG Gas Emissions 2007-2018'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='12'>Forecasting GHG emissions  2007-2018</run>
+            <run fontalignment='1'>Æ&#10;&#10;&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+            <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+            </column>
+            <column datatype='string' name='[Fuel Type (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[GHG Emissions (mt CO2e)]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year (local-government-operations-fue)]' role='dimension' type='quantitative' />
+            <column-instance column='[GHG Emissions (mt CO2e)]' derivation='Sum' forecast-column-base='[sum:GHG Emissions (mt CO2e):qk]' forecast-column-type='forecast-prediction-interval-lower' name='[fPIL:sum:GHG Emissions (mt CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[GHG Emissions (mt CO2e)]' derivation='Sum' forecast-column-base='[sum:GHG Emissions (mt CO2e):qk]' forecast-column-type='forecast-prediction-interval-upper' name='[fPIU:sum:GHG Emissions (mt CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[GHG Emissions (mt CO2e)]' derivation='Sum' forecast-column-base='[sum:GHG Emissions (mt CO2e):qk]' forecast-column-type='forecast-value' name='[fVal:sum:GHG Emissions (mt CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year (local-government-operations-fue)]' derivation='None' name='[none:Year (local-government-operations-fue):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[GHG Emissions (mt CO2e)]' derivation='Sum' name='[sum:GHG Emissions (mt CO2e):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' included-values='in-range'>
+            <min>2005</min>
+            <max>2015</max>
+          </filter>
+          <slices>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' scope='cols' value='true' />
+            <format attr='width' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]' value='72' />
+            <encoding attr='space' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' field-type='quantitative' max='2018' min='2007' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' scope='cols' value='Year' />
+            <format attr='subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]' scope='rows' value='true' />
+            <format attr='height' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]' value='64' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='border-style' value='solid' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='off' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</rows>
+        <cols>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2016</value>
+                <value>29400194696</value>
+                <value>32798849696</value>
+                <value>31099522196</value>
+                <value>&quot;Estimate&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2015</value>
+                <value>28014394857</value>
+                <value>31366074900</value>
+                <value>29690234878</value>
+                <value>&quot;Estimate&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2014</value>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>32632123968</value>
+                <value>&quot;Actual&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='3' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2013</value>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>32186953152</value>
+                <value>&quot;Actual&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='4' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2012</value>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>30624334848</value>
+                <value>&quot;Actual&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='5' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2011</value>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>33989989824</value>
+                <value>&quot;Actual&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='6' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIL:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fPIU:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[fVal:sum:GHG Emissions (mt CO2e):qk]</field>
+                  <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2010</value>
+                <value>%null%</value>
+                <value>%null%</value>
+                <value>35627594688</value>
+                <value>&quot;Actual&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+        <forecast-specification auto-forecast-agg='true' band-confidence-level='95.000000' enabled='true' fill-type='fill-missing' ignore-last='1' model-type='auto-season' range-periods='None' range-size='5' range-type='next' show-prediction-bands='true' />
+      </table>
+    </worksheet>
+    <worksheet name='Local government departments GHG Emissions'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='12'>Local government departments GHG Emissions</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+            <column datatype='string' name='[Department Longname (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Department Longname]' role='dimension' type='nominal' />
+            <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+            </column>
+            <column datatype='string' name='[Fuel Type (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[GHG Emissions (t CO2e)]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+            <column-instance column='[GHG Emissions (t CO2e)]' derivation='CountD' name='[ctd:GHG Emissions (t CO2e):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Department Longname (local-government-operations-gre)]' derivation='None' name='[none:Department Longname (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Department Longname]' derivation='None' name='[none:Department Longname:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Department Longname:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Boston Public Schools&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Emergency Medical Services&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Fire&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Library&quot;' />
+              <groupfilter from='&quot;Parks and Recreation&quot;' function='range' level='[none:Department Longname:nk]' to='&quot;Property &amp; Construction Mgmt&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Public Works&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Transportation&quot;' />
+              <groupfilter function='member' level='[none:Department Longname:nk]' member='&quot;Water and Sewer Commission&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Department Longname:nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</column>
+            <column>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='show-null-value-warning' value='false' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='border-style' value='solid' />
+            <format attr='title' field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' value='Sector '>
+              <formatted-text>
+                <run>Sector </run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' />
+              <color column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' />
+              <text column='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Department Longname (local-government-operations-gre):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#287a4e' fontsize='9'>Estimate of 27 billion metric tons of greenhouse gas emissions in the year 2018.</run>
+            <run>Æ&#10;</run>
+            <run bold='true' fontcolor='#287a4e' fontsize='9'>Approx 75% emissions of the emissions comes from energy use in buildings. </run>
+            <run>Æ&#10;</run>
+            <run bold='true' fontcolor='#287a4e' fontsize='9'>Public works and transportation contribute to 30% of the greenhouse emission</run>
+            <run bold='true' fontcolor='#59a14f' fontsize='9'>s.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='community-greenhouse-gas+ (Multiple Connections)' name='federated.04i75mg0yvuw1m1598st20vc5nsp' />
+      </datasources>
+      <datasource-dependencies datasource='federated.04i75mg0yvuw1m1598st20vc5nsp'>
+        <column caption='Fuel Type(GHG)' datatype='string' name='[Fuel Type (local-government-operations-gre) (copy)]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='[Fuel Type (local-government-operations-gre)]' />
+        </column>
+        <column datatype='string' name='[Sector (local-government-operations-gre)]' role='dimension' type='nominal' />
+        <column-instance column='[Fuel Type (local-government-operations-gre) (copy)]' derivation='None' name='[none:Fuel Type (local-government-operations-gre) (copy):nk]' pivot='key' type='nominal' />
+        <column-instance column='[Sector (local-government-operations-gre)]' derivation='None' name='[none:Sector (local-government-operations-gre):nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones use-insets='false'>
+        <zone h='100000' id='15' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='24' param='horz' type='layout-flow' w='98666' x='667' y='1000'>
+            <zone h='98000' id='18' param='vert' type='layout-flow' w='98666' x='667' y='1000'>
+              <zone h='98000' id='16' type='layout-basic' w='98666' x='667' y='1000'>
+                <zone h='98000' id='26' type='text' w='98666' x='667' y='1000'>
+                  <formatted-text>
+                    <run>dhdhsgfhdsfg&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='51625' id='3' name='Local government departments GHG Emissions' w='63833' x='36167' y='47500'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='25125' id='8' name='Local government departments GHG Emissions' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]' type='filter' values='relevant' w='16833' x='1250' y='28500'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='24875' id='9' name='Local government departments GHG Emissions' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' type='filter' values='relevant' w='16500' x='18500' y='28750'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='44875' id='10' name='GHG Gas Emissions 2007-2018' w='63500' x='36167' y='2000'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='26250' id='12' is-scaled='1' param='C:/Users/kruts/Documents/My Tableau Repository/Shapes/Weather/greenhouse.png' type='bitmap' w='14250' x='417' y='750' />
+        <zone h='44375' id='13' name='GHG Emissions Sector-wise' w='34667' x='917' y='54750'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='13750' id='14' name='GHG Emissions Sector-wise' pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' type='color' w='18000' x='1750' y='55125' />
+        <zone fixed-size='130' h='27500' id='19' is-fixed='true' type='title' w='19667' x='15083' y='750'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='11500' id='22' name='GHG Gas Emissions 2007-2018' pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]' type='color' w='12250' x='85750' y='4625' />
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='GHG Gas Emissions 2007-2018'>
+      <cards>
+        <edge name='left'>
+          <strip size='312'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='150'>
+            <card pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Calculation_989103074214735872:qk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Protocol:nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Local government departments GHG Emissions'>
+      <cards>
+        <edge name='left'>
+          <strip size='250'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='250'>
+            <card pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:Quantity:qk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Department Longname (local-government-operations-gre):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Department Longname:nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type:nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Quantity:nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-fue):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Units:nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[sum:GHG Emissions (mt CO2e):qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='FuelType'>
+      <cards>
+        <edge name='left'>
+          <strip size='312'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='312'>
+            <card pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[ctd:GHG Emissions (t CO2e):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Calculation_989103074239139843:qk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Calculation_989103074239406084:qk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre):nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='GHG Emissions Sector-wise'>
+      <cards>
+        <edge name='left'>
+          <strip size='312'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='312'>
+            <card pane-specification-id='0' param='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Fuel Type (local-government-operations-gre) (copy):nk]</field>
+            <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='GHG Emissions Sector-wise'>
+          <zoom type='fit-height' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Sector (local-government-operations-gre):nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='GHG Gas Emissions 2007-2018'>
+          <zoom type='entire-view' />
+          <selection-collection>
+            <node-selection select-tuples='false'>
+              <oriented-node-reference orientation='horizontal'>
+                <node-reference>
+                  <axis>[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Year (local-government-operations-fue):qk]</axis>
+                </node-reference>
+                <page-reference />
+              </oriented-node-reference>
+            </node-selection>
+          </selection-collection>
+          <highlight field='[federated.04i75mg0yvuw1m1598st20vc5nsp].[none:Forecast Indicator:nk]'>
+            <bucket-selection />
+          </highlight>
+          <floating-toolbar-visibility value='1' />
+        </viewpoint>
+        <viewpoint name='Local government departments GHG Emissions'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='150' name='FuelType' width='188'>
+      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
+      zQj2AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='GHG Emissions Sector-wise' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAADU0lEQVR4nO3asW4dVRRA0TPPceIERQJEGoIELQX//x0UFEhAAUiRQFFEiGNj+82lgFi8
+      H8DFXquac6rbbM2MZra11hqIOjz0AeAhCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCk
+      CYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoA
+      SBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0
+      AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMA
+      aQIgTQCkCYA0AZC11hIAYfu1AOhat28EQNfd228FQNO6u5zjn98JgKb95rfZr18JgKb96teZ
+      4zsB0HS8/GFmfAcgaB2vZn//08wIgKD95vdZx8uZEQAxa63ZL3+cOV7NjADI2We/+nlm9pkR
+      ADVrzX7z+n4UADH77Fe/3E8CIGXd/jGzv7+fBUDKun19MguAlP361cksAFLW3duTWQBkrLVm
+      3b452QmAjnU363h9shIAHetu1v7XyUoAhKz58AX4AwHQsY4z+83JSgBkrP3WIxD8lwBIEwBp
+      AiBjO5zPdrg42QmANAEQcjazPTrZCICOsyezPXp+shIAGdt2NtvhyclOALScPTsZBUDK4fFn
+      p/MDnQMexPbkxcksAFLcAUjbzj+e2c7vZwEQczaHZ1/dTwKgZdtOHoMEQMq2nc3h6Zczs82M
+      AAg6PP1i5t+f4gRAzuHi5WyPPvrn+oHPAv+77ezZHC5ezowAiDp7/s3MCICow8XnM4cLAdC0
+      nX8yh8cvBEDT4fGnc3j+9WxrrfXQh4GHcHz3vQDoWsf3AqBrrV0AtHkJJk0ApAmANAGQJgDS
+      BECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApP0Nb4aIrR7EPvcA
+      AAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='GHG Gas Emissions 2007-2018' width='192'>
+      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
+      Xi1RM1241TorqxsMRic4zO1SbjqYnZlEk6lTcU60vARyeYNcvHiR4eEhZmJjx1eFAHbWl9jJ
+      FNjd2cLTG6a/18ehoTLirRPfK3Vm5EK0QcszQPOwQiKRJByOsJfKMBa9cBQCRVEYHRsnnoPh
+      sRj5/AEPluJU8gnKPR4ik2Poui6rQrSJrArRPs+8KkS9mmd07jq33v03dG+UV65fO3rPNHVW
+      V9fYq6r0ahdIp1P4+kfQqz0oqoICaJomq0K0iawK0T6tVoU48QyQruW48cZb3Ll959i3QRVF
+      Y/76q8z/cnvkQvTxP0blSfHi/Gl5DxAev4qResj77/+M8bkF+QxAdK0THpOq8bEbn+70WITo
+      OHkEtrA1CYCwNQmAsDUJgLA1CYCwNQmAsDUJgLA1CYCwNQmAsDUJgLA1CYCwNQmAsDUJgLA1
+      CYCwNQmAsLXn7j0zTZPVex9g9s8w4CizlkgzODJBensZTVWJTC8wHHRbMVYh2u5UzZcTExPE
+      8zrZXJWF6wvEl9epN+o4FAeqqkhTfBtJU3z7PHNT/P/HNE1M00RTmuTzeZqo9A9eYKRPYydb
+      JhLol6b4NpGm+PZp1RR/insAg81kFrOcZWRyjkI2z+zMJB6Hwk4OZsZDbRiqEJ3x3FFTFI2Z
+      +ctH27GpGACjk9PtG5UQHSKzQMLWJADC1iQAwtYkAMLWJADC1iQAwtYkAMLWJADC1iQAwtYk
+      AMLWJADC1iQAwtYkAMLWJADC1iQAwtYkAMLWztR7ZugNSqUKLo8Xo1FDN1X8Pu9TbW5C/LY6
+      0xlgd3ud3fQBh/Umy0sPSW0usZYqt2tsQljuTGcAfyBIZjtBYlfj8LBKuqYSG3PKqhBtJKtC
+      tE/bVoX4lWajiaIqmKaJoqh4PC7KpRqDgaCsCtEmsipE+7RaFeJMlUKREfoGh1EUBXN6FHj6
+      gIT4bXamACiKcvQLL7/44jySaVBhaxIAYWsSAGFrEgBhaxIAYWsSAGFrEgBhaxIAYWsSAGFr
+      EgBhaxIAYWsSAGFrEgBha2f6Nmghk2R1a5fh0SnS28uYpsqFmasMBHraNT4hLHWmM0AqXeDq
+      wjUKmTSVahWj2UR/osNHiN9mZwqAik61WkU3FcKRKDOxIXK5SrvGJoTlzhSA8dgUu9tJYlMT
+      OMwGm+k6sQt97RqbEJY70z2A5nIzd3EOgMmZ+aPXDcPAoTiYDc8w5B9C159uRm6Xvp4+ZsMz
+      R9ujvVFL64U94WP1RgIjltaLeCPH6kV8EUvrDfuHj9Ub8A5YWi/aG6VS//VVQ8gTsqyeYirH
+      ju3xa0+25beBaZrouo6mPd2EbBWpJ/VOU8+S9ntFUVBVtaN9wlJP6p2mniVnACHOC+3tt99+
+      26qd51JJVuJraG4/u5urpAs1fA6d+0sruD0+1ldXiMe3GYwOoz1H+puHJRYfLlE+NNArOR6t
+      79A/EGJ58R7VpsphMcNqfANvX5gex9k/66tX8jxYWqHaVKjlU6xv79Hf38vi3bs0FBflg13W
+      NhP0D0bQ2vBHrFrMsrTyiLrpoJhJsr2XpT/Uy/379+gfiJBObrK2vUc4PIDahnqlXIqllTim
+      5ia7u0kiXaA/6OXOvYcMRQbJpZIks2VCQf/ZiwH5zC4rq2uoPT5SW3H28xX6fC7uLK4wPDTI
+      +qOHbCbTDAyEUdtwVsju7/BodR2nN0BifYWDUp1ej8bdpbi1nwQH+iPERiNk9hLoai9arUw8
+      sc/lyxfZTe4zf+kSgV4vzufcr+LwcHF2hnIhRzpXYW4yzL2bdwmNzVLNZ8gc5OgPukhlSm05
+      Dq3Hz9zMFKVchlyxwdigj/s37zIyf41ido9socpMtJe1rUxb6rm8QWanJikc7FOswIBXI50v
+      oTlUmkaTg8IhExE/e+lCW+p5Av3MTEbJH+xROXTiNxsUDhugPL44cHr8VMu5ttQC8PcNMjUe
+      4SC9y6HhxXlYoaSbKMrjVfdGJ6dxmw1qT6z6d1rB8DATo2H2trdR3GGoFinrj6fxLQ1AIbNL
+      ItdganKo5ful7C6+0NBzX/speo3F5Tgzc7Mt3zdMUJ0uzMbhc4+55f4OSzxc3WJ2buaJdxRA
+      IRIO8Gh9C1Vtz01cvZJnZSPJ3Nz00WsOlxt3i5XN2qFayLCezDEzPX70mrPHg1N7/Ovh8/lo
+      59V5MbvHdqbGdGzk6LUejxeHqgAmG6vL9EUn8LbpeHOpBPsFiI0PHL3m8fpQFYu/C5QvFKmX
+      8+RKoBkFdLeP2IUIi4tLDEejVBoqo0Oh595vKZfDwCSR3Gegz8vyeoarL1/lYGsFTzBMOBgg
+      ky0RHnz+fbdSzOcxjCbJvSx9ASdbqTJXXr5G8uEdAv0R9GYT1TPI1Gh7PgMp5vPozTq7+wUC
+      XkiXddxGlcxBga3tPUIBFxt7JYYGettSr1Ao0KxX2E9X8fY0KClOKB1QKpZY306yEV+hWChQ
+      rDbaVK9Io1IknWviUss0erwcZvYoFUtsJpKUSlX2dxI02nQGKBSK1EoHlBpOzFoG0xOgvJ+g
+      VCzJTbCwN/k2qLA1CYCwNQmAsDUJgDg3GrUim4kUhXSSbOnZZvjuLi6j6yffTFv35AMh2szh
+      cvPh+9/H7+vhY69+lB/9cJGh6Cip5BZDsXnKuxs0tF5e+cglypUqa5vbfO0/v8WrLy3whbfe
+      aLlPOQOIc0NRnbw6F6bqm2Dx/R+Qa5os3btPpdHg5gcfcOvnD7l29fFnQ6qq8B/f+B7joyN8
+      7o1PnLxPmQYV50kpscxSqZdxd46fLu4QcmtUFQcOTUXV4Xc++ToA+6kM5WqNWu2QS3NTJ+5P
+      AiBsTS6BhK39H+fhwBUJpgE3AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Local government departments GHG Emissions' width='192'>
+      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
+      /zuX1zOrj08TAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
